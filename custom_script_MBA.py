@@ -23,7 +23,7 @@ def test (OD_data, temp_data, vials, elapsed_time, exp_name):
     #Vials to bump up temperature
     vialsToCook=[0,1,2,3,5]
 
-    #### CHANGE HERE!!!!!!  #####
+    #### CHANGE HERE TO INITIALIZE VIALS FOR A GIVEN EXPERIMENT!!!!!!  #####
     #set the upper and lower OD thresholds for the vials IN USE, others at arbitrarily large values (e.g. 99999)
     
     lower_thresh = np.array([0.1,0.1,0.1,0.1,0.1,0.1,0.1,99999,99999,99999,99999,99999,99999,99999,99999,99999])

@@ -4,10 +4,12 @@ import eVOLVER_module
 import time
 import pickle
 import os.path
-#import custom_script
-import custom_script_MBA as custom_script
 import smtplib
+
+#import modified custom_script
+import custom_script_MBA as custom_script
 from adjTemp_MBA import bumpByGRate
+#from adjTemp_MBA import bumpByTime
 
 #Where the GUI is called and widgets are placed
 class make_GUI:
@@ -126,14 +128,9 @@ def custom_functions(elapsed_time, exp_name):
     if OD_data == 'empty':
         print "UDP Empty, did not execute program!"
     else:
-        ###load script from another python file
+        ###load script from another python file; this is where the vials to bump up the temperature are specified
         custom_script.test(OD_data, temp_data, vials,elapsed_time, exp_name)
-        #custom script to bump up temp
-        # vialsToBumpUp=[0]
-        # hoursTillBump=(6)
-        # if int(round(elapsed_time*3600))%(hoursTillBump*3600)<10:
-        #     print "calling gRate function"
-        #     bumpByGRate(vialsToBumpUp,exp_name, tempStep=0.1,g_thr_low=0.4, g_thr_high=0.5)
+
             
 
         

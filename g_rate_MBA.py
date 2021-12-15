@@ -1,7 +1,7 @@
 import numpy as np
 
 def g_rate_avg(OD_data, pump_log): # calculate average growth rate between pump events
-    ''' This function, based on Brandon's matlab script, will split data across MULTIPLE cycles into pump events and return growth rates alog with dil times
+    ''' This function will split data across MULTIPLE cycles into pump events and return growth rates alog with dil times
         Inputs:
         OD_data = [time, OD]
         pump_log = [time, OD]
@@ -34,7 +34,6 @@ def g_rate_avg(OD_data, pump_log): # calculate average growth rate between pump 
                     od_end=np.nanmean(ODy[-6:-1])
                     od_start=np.nanmean(ODy[0:5])
                     duration=ODx[-1]
-                    #rate=1/(duration/np.log2(od_end/od_start)) #corrected to specific growth rate from growth rate bason 6-19-19 (MBA)
                     rate=1/(duration/np.log(od_end/od_start))
                     g_rate_x.append(ODt[0])
                     g_rate_y.append(rate)
@@ -64,7 +63,6 @@ def g_rate_cycle(ODt,ODy):
         od_end=np.nanmean(ODy[-6:-1])
         od_start=np.nanmean(ODy[0:5])
         duration=ODx[-1]
-        #rate=1/(duration/np.log2(od_end/od_start)) #corrected to specific growth rate 6-19-19 (MBA)
         rate=1/(duration/np.log(od_end/od_start))
         g_rate_y=rate
         return g_rate_x, g_rate_y
